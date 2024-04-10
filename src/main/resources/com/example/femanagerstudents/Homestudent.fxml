@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.femanagerstudents.HomestudentController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="180.0" style="-fx-background-color: #CCFFFF;">
+         <children>
+            <Button fx:id="studentslistbutton" layoutX="10.0" layoutY="250.0" mnemonicParsing="false" onAction="#studentslist" prefHeight="42.0" prefWidth="158.0" text="Students List">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon glyphName="LIST" />
+               </graphic>
+            </Button>
+            <Button layoutX="10.0" layoutY="300.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="158.0" text="Reg Subject">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon glyphName="PENCIL" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="180.0" prefHeight="120.0" prefWidth="820.0" style="-fx-background-color: #CCFFFF;" />
+   </children>
+</AnchorPane>
