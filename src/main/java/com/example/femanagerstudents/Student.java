@@ -35,7 +35,7 @@ public class Student {
         this.Name = Name;
     }
 
-    // Getter and Setter for Gender
+    // Getter and Setter cho Gender
     public String getGender() {
         return Gender;
     }
@@ -44,7 +44,7 @@ public class Student {
         this.Gender = Gender;
     }
 
-    // Getter and Setter for date
+    // Getter and Setter cho date
     public LocalDate getDate() {
         return date;
     }
@@ -52,6 +52,8 @@ public class Student {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+    // Getter and Setter cho GPA
     public Float getGPA() {
         return GPA;
     }

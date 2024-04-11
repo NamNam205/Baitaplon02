@@ -27,7 +27,7 @@ public class HelloController {
     public void Login()throws IOException {
             String username1 = UsernameTextField.getText();
             String password1 = PasswordTextField.getText();
-            if(username1.equals("1")&& password1.equals("1")) {
+            if(username1.equals("admin")&& password1.equals("1")) {
                 ToolFXML.openFXML("Home.fxml");
                 ToolFXML.closeFXML(welcomeScence);
             }

@@ -1,2 +1,3 @@
-Physic,1,CNTT
-maths,2,Economy
+dqưdưq,123,Economy
+greoigre,1456,Economy
+hepth,2395,Law

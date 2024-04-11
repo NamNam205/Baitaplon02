@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class HomeController {
+public class    HomeController {
     public AnchorPane homeview;
     public AnchorPane studentview;
     public AnchorPane subjectview;
@@ -36,6 +36,7 @@ public class HomeController {
     public TextField GPAtextfield;
     public TextField searchtextfield;
     public Button searchbutton;
+    public Button repeatbutton;
 
     public void initialize(){
         Gendercombobox.getItems().addAll(
@@ -46,6 +47,7 @@ public class HomeController {
         tableview.setItems(students);
         tablesubjectview.setItems(subjects);
         loadStudentsFromFile("data.txt");
+        loadSubjectstoFile("dataSubject.txt");
 
         updatebutton.setOnAction(this::update);
         // Thiết lập sự kiện cho nút cập nhật
@@ -100,8 +102,8 @@ public class HomeController {
         students.add(new Student(Integer.parseInt(studentext),nametext,gender,localdate,GPA));
         //xét kiểu dữ liệu cho từng fx id
 
-        saveStudentsToFile("data.txt")
-;    }
+        saveStudentsToFile("data.txt");
+    }
 
     public void update(ActionEvent actionEvent) {
         Student selectedStudent = tableview.getSelectionModel().getSelectedItem();
@@ -219,6 +221,7 @@ public class HomeController {
         } catch (IOException e) {
             System.err.println("Lỗi khi lưu danh sách môn học vào tệp " + filePath + ": " + e.getMessage());
         }
+        //lưu vào File
     }
 
     public void updatesubject(ActionEvent actionEvent) {
@@ -250,6 +253,23 @@ public class HomeController {
             alert.showAndWait();
         }
     }
+    public void loadSubjectstoFile(String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) { // Kiểm tra xem có đủ phần tử để tạo môn học không
+                    String subjectName = parts[0];
+                    int subjectId = Integer.parseInt(parts[1]);
+                    String course = parts[2];
+                    subjects.add(new Subject(subjectId, subjectName, course)); // Thêm môn học mới vào danh sách
+                }
+            }
+            System.out.println("Danh sách môn học đã được tải từ tệp " + filePath);
+        } catch (IOException e) {
+            System.err.println("Lỗi khi tải danh sách môn học từ tệp " + filePath + ": " + e.getMessage());
+        }
+    }
 
     public void GPAtext(ActionEvent actionEvent) {
     }
@@ -266,5 +286,10 @@ public class HomeController {
         }
 
         tableview.setItems(searchResults); // Hiển thị danh sách kết quả trên TableView
+    }
+
+    public void repeat(ActionEvent actionEvent) {
+        searchtextfield.clear(); // Xóa nội dung trong trường tìm kiếm
+        tableview.setItems(students); // Hiển thị lại danh sách sinh viên ban đầu trên TableView
     }
 }
