@@ -37,6 +37,7 @@ public class    HomeController {
     public TextField searchtextfield;
     public Button searchbutton;
     public Button repeatbutton;
+    public Button resetbutton;
 
     public void initialize(){
         Gendercombobox.getItems().addAll(
@@ -46,8 +47,11 @@ public class    HomeController {
         //set lựa chọn cho combobox
         tableview.setItems(students);
         tablesubjectview.setItems(subjects);
+
         loadStudentsFromFile("data.txt");
         loadSubjectstoFile("dataSubject.txt");
+
+        resetbutton.setOnAction(this::reset);
 
         updatebutton.setOnAction(this::update);
         // Thiết lập sự kiện cho nút cập nhật
@@ -292,4 +296,16 @@ public class    HomeController {
         searchtextfield.clear(); // Xóa nội dung trong trường tìm kiếm
         tableview.setItems(students); // Hiển thị lại danh sách sinh viên ban đầu trên TableView
     }
+    public ObservableList<Student> getStudents() {
+        return students;
+    }
+
+    public void reset(ActionEvent actionEvent) {
+        studenttextfield.clear();
+        nametextfield.clear();
+        datepicker.setValue(null);
+        Gendercombobox.setValue(null);
+        GPAtextfield.clear();
+        tableview.getSelectionModel().clearSelection();
+        }
 }

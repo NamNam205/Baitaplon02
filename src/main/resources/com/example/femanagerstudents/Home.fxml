@@ -43,7 +43,7 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="180.0" prefHeight="120.0" prefWidth="820.0" style="-fx-background-color: #CCFFFF;" />
-      <AnchorPane fx:id="studentview" layoutX="180.0" layoutY="119.0" prefHeight="484.0" prefWidth="820.0" visible="false">
+      <AnchorPane fx:id="studentview" layoutX="180.0" layoutY="119.0" prefHeight="484.0" prefWidth="820.0">
          <children>
             <ComboBox fx:id="Gendercombobox" layoutX="354.0" layoutY="112.0" onAction="#gender" prefWidth="150.0" promptText="Gender" />
             <Label layoutX="37.0" layoutY="49.0" text="StudentID" />
@@ -101,13 +101,18 @@
             <DatePicker fx:id="datepicker" layoutX="354.0" layoutY="44.0" prefHeight="26.0" prefWidth="150.0" />
             <Label layoutX="566.0" layoutY="50.0" text="GPA" />
             <TextField fx:id="GPAtextfield" layoutX="597.0" layoutY="46.0" onAction="#GPAtext" prefHeight="26.0" prefWidth="121.0" />
-            <TextField fx:id="searchtextfield" layoutX="388.0" layoutY="176.0" prefHeight="24.0" prefWidth="194.0" />
-            <Button fx:id="searchbutton" layoutX="360.0" layoutY="176.0" mnemonicParsing="false" onAction="#search">
+            <TextField fx:id="searchtextfield" layoutX="449.0" layoutY="176.0" prefHeight="24.0" prefWidth="194.0" />
+            <Button fx:id="searchbutton" layoutX="421.0" layoutY="177.0" mnemonicParsing="false" onAction="#search">
                <graphic>
-                  <FontAwesomeIcon glyphName="SEARCH" />
+                  <FontAwesomeIcon glyphName="SEARCH" text="" />
                </graphic>
             </Button>
-            <Button fx:id="repeatbutton" layoutX="589.0" layoutY="176.0" mnemonicParsing="false" onAction="#repeat" prefHeight="26.0" prefWidth="27.0">
+            <Button fx:id="repeatbutton" layoutX="644.0" layoutY="176.0" mnemonicParsing="false" onAction="#repeat" prefHeight="26.0" prefWidth="27.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="REPEAT" text="" />
+               </graphic>
+            </Button>
+            <Button fx:id="resetbutton" layoutX="301.0" layoutY="176.0" mnemonicParsing="false" onAction="#reset" prefHeight="26.0" prefWidth="32.0">
                <graphic>
                   <FontAwesomeIcon glyphName="REPEAT" />
                </graphic>

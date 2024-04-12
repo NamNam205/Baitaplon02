@@ -25,13 +25,18 @@ public class HelloController {
     }
 
     public void Login()throws IOException {
-            String username1 = UsernameTextField.getText();
-            String password1 = PasswordTextField.getText();
-            if(username1.equals("admin")&& password1.equals("1")) {
+            String username = UsernameTextField.getText();
+            String password = PasswordTextField.getText();
+            if(username.equals("admin")&& password.equals("1")) {
+                // Nếu tài khoản và mật khẩu là "admin" và "1"
                 ToolFXML.openFXML("Home.fxml");
                 ToolFXML.closeFXML(welcomeScence);
             }
-            else {
+            else if (username.equals("user") && password.equals("1")) {
+                // Nếu tài khoản và mật khẩu là "user" và "1"
+                ToolFXML.openFXML("Homestudent.fxml");
+                ToolFXML.closeFXML(welcomeScence);
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Thông Báo!");
                 alert.setHeaderText("Tài Khoản Không Hợp Lệ");
